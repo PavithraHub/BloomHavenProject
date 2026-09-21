@@ -54,8 +54,10 @@
             emailError.textContent="";
             passError.textContent=""
 
-
-            validate();
+            if (validate()) {
+                window.location.href = "Home.html";
+            }
+           
 
             
         })
