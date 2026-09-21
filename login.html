@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="imageContainer">
+            <img src="Designer.png" alt="logo" width="600" class="img">
+        </div>
+        <div class="loginContainer">
+            <form class="formContainer" novalidate>
+                <h1>Welcome Back!</h1>
+                <div class="labels">
+                    <label for="email">Email Address</label>
+                    <input id="email" class="textarea" type="email" placeholder="Enter your email address">
+                    <span class = "error" id="emailError"></span>
+                </div>
+
+                <div class="labels">
+                    
+                    <label for="password">Password</label>
+                    <input id="password" class="textarea" type="text" placeholder="Enter your password">
+                    <span class = "error" id="pwdError"></span>
+                </div>
+
+                <div class="link">
+                    <button type="submit" class="btn" id="login">Log In</button>
+                    <a href="forgot password.html" class="btn url">Forgot password</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <script>
+
+        const form = document.querySelector(".formContainer");
+        const email=document.getElementById('email');
+        const password=document.getElementById('password');
+        const emailError=document.getElementById('emailError');
+        const passError=document.getElementById('pwdError');
+        var emailRegex = /^[^\s@]+@[^\s@\.]+\.[^\s@]+$/;
+
+
+
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+
+            emailError.textContent="";
+            passError.textContent=""
+
+
+            validate();
+
+            
+        })
+        function validate(){
+  
+                if (email.value==="")
+                {
+                    console.log(email.value)
+                    emailError.textContent="Email address cannot be empty"
+                }
+
+                if(password.value==="")
+                {
+                    passError.textContent="Password cannot be empty"
+                }
+
+                if(password.value!=="" & password.value!="admin"){
+                    passError.textContent="Invalid password"
+                }
+
+                if(!emailRegex.test(email.value))
+                {
+                    emailError.textContent="Please enter a valid email"
+                }
+
+                
+
+               
+
+        }
+    </script>
+</body>
+
+</html>
