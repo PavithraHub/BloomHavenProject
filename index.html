@@ -54,6 +54,7 @@
             emailError.textContent="";
             passError.textContent=""
 
+
             if (validate()) {
                 window.location.href = "Home.html";
             }
@@ -62,29 +63,35 @@
             
         })
         function validate(){
+            let isValid = true;
   
                 if (email.value==="")
                 {
                     console.log(email.value)
-                    emailError.textContent="Email address cannot be empty"
+                    emailError.textContent="Email address cannot be empty";
+                    isValid="false";
                 }
 
                 if(password.value==="")
                 {
-                    passError.textContent="Password cannot be empty"
+                    passError.textContent="Password cannot be empty";
+                    isValid = false; 
+
                 }
 
                 if(password.value!=="" & password.value!="admin"){
-                    passError.textContent="Invalid password"
+                    passError.textContent="Invalid password";
+                    isValid = false;
                 }
 
                 if(!emailRegex.test(email.value))
                 {
                     emailError.textContent="Please enter a valid email"
+                    isValid = false;
                 }
 
                 
-
+                return isValid;
                
 
         }
